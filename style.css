@@ -1,3 +1,8 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #2b2d42;
+}
 .visually-hidden {
     position: absolute;
     overflow: hidden;
@@ -6,8 +11,63 @@
     margin: -1px; padding: 0; border: 0;
   }
 
-  .movImgContainer{
-    border : 1px solid green;
-    width : 200px;
-    height : 200px;
+h1 {
+  text-align: center;
+  font-family: Audiowide;
+  color: #ef233c;
+  font-size: 4rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+
+input {
+  font-size: 1rem;
+  width: 18vw;
+  margin: 0.5rem 1rem;
+  border-radius: 5px;
+  padding: 0.25rem;
   }
+
+  #year-input {
+    background-color: #edf2f4 !important;
+  }
+
+  #submit-year {
+    background-color: #ef233c;
+    /* border: 0.1rem solid #d90429; */
+    border: 0.1rem solid #8d99ae;
+  }
+
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 80vw;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10vw;
+    padding: 2vw 10vw;
+  }
+
+  #movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    justify-content: space-between;
+    /* padding: 10vw; */
+    margin-top: 1vw;
+  }
+
+  img {
+    /* max-width: 50%; */
+    width: 29.5vw;
+    height: 20%;
+    margin-bottom: 1vw;
+    
+  }
+  

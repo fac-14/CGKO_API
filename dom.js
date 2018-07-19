@@ -23,9 +23,9 @@ function searchMovie(data) {
     movImg.className = "movImgContainer";
     //console.log('movie path ='+ imgUrl + data.results[i].poster_path);
     document.getElementById("movies-container").appendChild(movImg);
-    if (document.querySelector(".movImgContainer")) {
-      document.getElementById("form").reset();
-    }
+    // if (document.querySelector(".movImgContainer")) {
+    //   document.getElementById("form").reset();
+    // }
   }
   //console.log(document.getElementById('movies-container').childNodes);
 }
@@ -43,5 +43,6 @@ function movieRequest() {
     var url_new = url + userInput;
     console.log(url_new);
     xhrFunc.apiMovieCall("GET", url_new, true, searchMovie);
+    event.preventDefault();
 }
 

@@ -13,19 +13,22 @@ var imgSrc;
 var submit = document.querySelector("#submit-year");
 
 function searchMovie(data) {
-  for(var i =0; i< 4; i++)
-  {
+  var container = document.getElementById('movies-container');
+  while (container.firstChild ) {
+    console.log(container.childNodes.length)
+    container.removeChild(container.firstChild);
+  }
+
+  for(var i =0; i< 4; i++){
     var movImg = document.createElement("img");  
     movImg.src = imgUrl + data.results[i].poster_path;
     movImg.className = "movImgContainer";
-    console.log('movie path ='+ imgUrl + data.results[i].poster_path);
+    //console.log('movie path ='+ imgUrl + data.results[i].poster_path);
     document.getElementById("movies-container").appendChild(movImg);
   }
-    console.log("data is " + data);
-    console.log(document.querySelector(".movImgContainer"));
-    if (document.querySelector(".movImgContainer")) {
-      document.getElementById("form").reset();
-    }
+
+
+  //console.log(document.getElementById('movies-container').childNodes);
 }
 
 submit.addEventListener("click", function() {
@@ -35,6 +38,5 @@ submit.addEventListener("click", function() {
     xhrFunc.apiMovieCall("GET", url_new, true, searchMovie);
     event.preventDefault();
 });
-
 
 })();

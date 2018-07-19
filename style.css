@@ -32,9 +32,12 @@ h1 {
     display: block;
     margin: auto;
     font-family: "Comfortaa", cursive;
-    color: #2b2d42;
-    background-color: #8d99ae;
+    font-weight: 700;
+    color: #edf2f4;
+    background-color: #1c1d2a;
     border-radius: 5px;
+    box-shadow: ;
+    padding: 2rem;
     max-width: 60vw;
 }
 

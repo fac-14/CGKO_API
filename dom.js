@@ -21,8 +21,11 @@ function searchMovie(data) {
     console.log('movie path ='+ imgUrl + data.results[i].poster_path);
     document.getElementById("movies-container").appendChild(movImg);
   }
-    console.log(data);
-
+    console.log("data is " + data);
+    console.log(document.querySelector(".movImgContainer"));
+    if (document.querySelector(".movImgContainer")) {
+      document.getElementById("form").reset();
+    }
 }
 
 submit.addEventListener("click", function() {
@@ -32,5 +35,6 @@ submit.addEventListener("click", function() {
     xhrFunc.apiMovieCall("GET", url_new, true, searchMovie);
     event.preventDefault();
 });
+
 
 })();

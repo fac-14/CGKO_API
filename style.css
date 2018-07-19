@@ -13,24 +13,29 @@ body {
 
 h1 {
   text-align: center;
+  font-family: Audiowide;
+  color: #ef233c;
+  font-size: 4rem;
+  padding: 1rem;
+  margin: 1rem;
 }
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 2rem;
 }
 
 input {
   font-size: 1rem;
-  background-color: pink;
-  width: calc(35vw - 4rem);
+  width: 18vw;
   margin: 0.5rem 1rem;
   border-radius: 5px;
   padding: 0.25rem;
   }
 
   #year-input {
-    background-color: #edf2f4;
+    background-color: #edf2f4 !important;
   }
 
   #submit-year {
@@ -45,9 +50,8 @@ input {
     max-width: 80vw;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
     margin: 0 10vw;
-    padding: 10vw;
+    padding: 2vw 10vw;
   }
 
   #movies-container {
@@ -55,10 +59,8 @@ input {
     flex-wrap: wrap;
     width: 60vw;
     justify-content: space-between;
-    background-color: pink;
     /* padding: 10vw; */
-    
-
+    margin-top: 1vw;
   }
 
   img {

@@ -1,6 +1,4 @@
 
-
-(function(){
   // Token //
   //var token = "8d40593c3cc012af4b0fc67eba712ec8";
 
@@ -25,18 +23,25 @@ function searchMovie(data) {
     movImg.className = "movImgContainer";
     //console.log('movie path ='+ imgUrl + data.results[i].poster_path);
     document.getElementById("movies-container").appendChild(movImg);
+    if (document.querySelector(".movImgContainer")) {
+      document.getElementById("form").reset();
+    }
   }
-
-
   //console.log(document.getElementById('movies-container').childNodes);
 }
 
-submit.addEventListener("click", function() {
+
+submit.addEventListener("click", movieRequest);
+submit.addEventListener("keyup", function(e){
+  if (e.keyCode === 13) {
+    movieRequest();
+  }
+});
+
+function movieRequest() {
   var userInput = document.getElementById("year-input").value;
     var url_new = url + userInput;
     console.log(url_new);
     xhrFunc.apiMovieCall("GET", url_new, true, searchMovie);
-    event.preventDefault();
-});
+}
 
-})();

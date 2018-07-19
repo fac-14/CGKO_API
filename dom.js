@@ -11,16 +11,22 @@ var imgSrc;
 var submit = document.querySelector("#submit-year");
 
 function searchMovie(data) {
-  for(var i =0; i< 4; i++)
-  {
+  var container = document.getElementById('movies-container');
+  while (container.firstChild ) {
+    console.log(container.childNodes.length)
+    container.removeChild(container.firstChild);
+  }
+
+  for(var i =0; i< 4; i++){
     var movImg = document.createElement("img");  
     movImg.src = imgUrl + data.results[i].poster_path;
     movImg.className = "movImgContainer";
-    console.log('movie path ='+ imgUrl + data.results[i].poster_path);
+    //console.log('movie path ='+ imgUrl + data.results[i].poster_path);
     document.getElementById("movies-container").appendChild(movImg);
   }
-    console.log(data);
 
+
+  //console.log(document.getElementById('movies-container').childNodes);
 }
 
 

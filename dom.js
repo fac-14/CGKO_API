@@ -15,7 +15,12 @@ submit.addEventListener("keyup", function(e) {
 function movieRequest() {
     var userInput = document.getElementById("year-input").value;
     var url_new = url + userInput;
-    xhrFunc.apiMovieCall("GET", url_new, true, searchMovie);
+    // show alert if user adds spaces or more than 4 characters
+    if (userInput.trim() == "" || userInput.length > 4) {
+        alert("Please enter a date between 1885 and the current year");
+    } else {
+        xhrFunc.apiMovieCall("GET", url_new, true, searchMovie);
+    }
     event.preventDefault();
 }
 
@@ -33,7 +38,6 @@ function searchMovie(data) {
         document.getElementById("movies-container").appendChild(movImg);
         var movAnchr = document.createElement("a");
         var mov_title = data.results[i].title;
-        
 
         movAnchr.addEventListener("click", function() {
             var url_new =
@@ -52,10 +56,11 @@ function searchMovie(data) {
     }
 }
 
-function resetInput(){
-   if (document.querySelector(".movImgContainer")) {
-          document.getElementById("form").reset();
-        }
+function resetInput() {
+    if (document.querySelector(".movImgContainer")) {
+        document.getElementById("form").reset();
+    }
+}
 
 function populateGiphy(data) {
     var giphyContainer = document.getElementById("gif-container");

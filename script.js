@@ -10,7 +10,6 @@ var xhrFunc = {
             console.log("hi");
 
             callback(data);
-            return data;
         }
     };
     xhr.open(method, myurl, bool);

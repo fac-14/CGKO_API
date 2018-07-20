@@ -4,14 +4,16 @@ var imgUrl = "https://image.tmdb.org/t/p/original";
 
 // Output/Input fields //
 var submit = document.querySelector("#submit-year");
+var container = document.getElementById('movies-container');
+submit.addEventListener("click", movieRequest);
 
-function searchMovie(data) {
-  var container = document.getElementById('movies-container');
+function clearImagePosters(){
   while (container.firstChild ) {
     container.removeChild(container.firstChild);
   }
-
-  for(var i =0; i< 4; i++){
+}
+function populateMovieContainer(data){
+  for(var i =0; i< 4; i++) {
     var movImg = document.createElement("img");
     movImg.src = imgUrl + data.results[i].poster_path;
     var mov_title = data.results[i].title;
@@ -19,18 +21,14 @@ function searchMovie(data) {
     movImg.className = "movImgContainer";
     document.getElementById("movies-container").appendChild(movImg);
     var movAnchr = document.createElement('a');
-    // if (document.querySelector(".movImgContainer")) {
-    //   document.getElementById("form").reset();
-    // }
 
     movAnchr.addEventListener('click',function(){
       var url_new = "http://api.giphy.com/v1/gifs/search?q="+mov_title+" movie "+"&api_key=LwdEhgTkpRWSHrsTOambPxFBCMIxGLPA" ;
-    xhrFunc.apiMovieCall("GET", url_new, true, populateGiphy);
-    event.preventDefault();
-    });
+      xhrFunc.apiMovieCall("GET", url_new, true, populateGiphy);
+      event.preventDefault();
+      });
     movAnchr.appendChild(movImg);
     movAnchr.appendChild(movImg);
-
     document.getElementById('movies-container').appendChild(movAnchr);
   }
 }
@@ -41,16 +39,12 @@ function populateGiphy(data){
   giphyImg.src = data.data[0].images.downsized.url;
   giphyContainer.appendChild(giphyImg);
   event.preventDefault();
-
 }
 
-
-submit.addEventListener("click", movieRequest);
-submit.addEventListener("keyup", function(e){
-  if (e.keyCode === 13) {
-    movieRequest();
-  }
-});
+function searchMovie(data) {
+  clearImagePosters();
+  populateMovieContainer(data);
+}
 
 function movieRequest() {
   var userInput = document.getElementById("year-input").value;

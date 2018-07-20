@@ -1,4 +1,4 @@
-##How to use this awesome app
+How to use this awesome app:
 Simple it's open to the world, github pages link below. We may have completely forgotten to hide our api key because we want to see the best in people, please don't over use our api key.
 
 Our projects link is here https://fac-14.github.io/CGKO_API/.

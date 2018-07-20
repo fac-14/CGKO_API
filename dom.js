@@ -5,13 +5,38 @@ var imgUrl = "https://image.tmdb.org/t/p/original";
 // Output/Input fields //
 var submit = document.querySelector("#submit-year");
 var container = document.getElementById('movies-container');
+
+
 submit.addEventListener("click", movieRequest);
 
+function movieRequest() {
+    var userInput = document.getElementById("year-input").value;
+    var url_new = url + userInput;
+    // show alert if user adds spaces or more than 4 characters
+    if (userInput.trim() == "" || userInput.length > 4) {
+        alert("Please enter a date between 1885 and the current year");
+    } else {
+        xhrFunc.apiMovieCall("GET", url_new, true, searchMovie);
+    }
+    event.preventDefault();
+}
+
+function searchMovie(data) {
+  clearImagePosters();
+  populateMovieContainer(data);
+submit.addEventListener("click", movieRequest);
+submit.addEventListener("keyup", function(e) {
+    if (e.keyCode === 13) {
+        movieRequest();
+    }
+});
+}
 function clearImagePosters(){
   while (container.firstChild ) {
     container.removeChild(container.firstChild);
   }
 }
+
 function populateMovieContainer(data){
   for(var i =0; i< 4; i++) {
     var movImg = document.createElement("img");
@@ -41,14 +66,11 @@ function populateGiphy(data){
   event.preventDefault();
 }
 
-function searchMovie(data) {
-  clearImagePosters();
-  populateMovieContainer(data);
-}
+function resetInput() {
+    if (document.querySelector(".movImgContainer")) {
+        document.getElementById("form").reset();
 
-function movieRequest() {
-  var userInput = document.getElementById("year-input").value;
-    var url_new = url + userInput;
-    xhrFunc.apiMovieCall("GET", url_new, true, searchMovie);
-    event.preventDefault();
+
+
+}
 }

@@ -39,7 +39,6 @@ function searchMovie(data) {
     event.preventDefault();
     });
     movAnchr.appendChild(movImg);
-    //movAnchr.href = "http://example.com"; //link to eventListener here
     movAnchr.appendChild(movImg);
 
     document.getElementById('movies-container').appendChild(movAnchr);

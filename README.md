@@ -1,3 +1,8 @@
+How to use this awesome app:
+Simple it's open to the world, github pages link below. We may have completely forgotten to hide our api key because we want to see the best in people, please don't over use our api key.
+
+Our projects link is here https://fac-14.github.io/CGKO_API/.
+
 CJKO week 3 project
 
 Tuesday 5pm:
@@ -20,3 +25,18 @@ Streatch goals:
 - random gif for consolation
 
 Wednesday 12pm:
+
+Before:
+![](https://i.imgur.com/gbmDykx.jpg)
+
+After:
+![](https://i.imgur.com/oJbq1jp.png)
+
+Fancy new title too!!![](https://i.imgur.com/jGaQcpu.png)
+
+How about our accesibility audit?!
+![](https://i.imgur.com/lyaD8Dx.png)
+
+Our motto:![](https://i.imgur.com/3UZjGZ7.png)
+
+It's a feature, not a bug! OBVIOUSLY!

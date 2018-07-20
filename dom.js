@@ -1,7 +1,7 @@
 
   // Token //
   //var token = "8d40593c3cc012af4b0fc67eba712ec8";
-(function(){
+//(function(){
 
 var url =
     "https://api.themoviedb.org/3/discover/movie?api_key=8d40593c3cc012af4b0fc67eba712ec8&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=";
@@ -71,4 +71,4 @@ function movieRequest() {
     event.preventDefault();
 }
 
-})();
+//})();

@@ -9,7 +9,6 @@ var submit = document.querySelector("#submit-year");
 function searchMovie(data) {
   var container = document.getElementById('movies-container');
   while (container.firstChild ) {
-    console.log(container.childNodes.length)
     container.removeChild(container.firstChild);
   }
 
@@ -17,7 +16,6 @@ function searchMovie(data) {
     var movImg = document.createElement("img");  
     movImg.src = imgUrl + data.results[i].poster_path;
     movImg.className = "movImgContainer";
-    //console.log('movie path ='+ imgUrl + data.results[i].poster_path);
     document.getElementById("movies-container").appendChild(movImg);
     var movAnchr = document.createElement('a');
     var mov_title = data.results[i].title;
@@ -27,7 +25,6 @@ function searchMovie(data) {
 
     movAnchr.addEventListener('click',function(){
       var url_new = "http://api.giphy.com/v1/gifs/search?q="+mov_title+" movie "+"&api_key=LwdEhgTkpRWSHrsTOambPxFBCMIxGLPA" ;
-    console.log("url_new="+url_new);
     xhrFunc.apiMovieCall("GET", url_new, true, populateGiphy);
     event.preventDefault();
     });
@@ -37,14 +34,12 @@ function searchMovie(data) {
 
     document.getElementById('movies-container').appendChild(movAnchr);
   }
-  //console.log(document.getElementById('movies-container').childNodes);
 }
 
 function populateGiphy(data){
   var giphyContainer = document.getElementById("gif-container");
    var giphyImg = document.createElement('img');
   giphyImg.src = data.data[0].images.downsized.url;
-  console.log(data.data[0].images.downsized.url);
   giphyContainer.appendChild(giphyImg);
   event.preventDefault(); 
  
@@ -61,7 +56,6 @@ submit.addEventListener("keyup", function(e){
 function movieRequest() {
   var userInput = document.getElementById("year-input").value;
     var url_new = url + userInput;
-    console.log(url_new);
     xhrFunc.apiMovieCall("GET", url_new, true, searchMovie);
     event.preventDefault();
 }

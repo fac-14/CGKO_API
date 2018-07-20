@@ -19,13 +19,15 @@ function searchMovie(data) {
   }
 
   for(var i =0; i< 4; i++){
-    var movImg = document.createElement("img");  
+    var movImg = document.createElement("img");
     movImg.src = imgUrl + data.results[i].poster_path;
+    var mov_title = data.results[i].title;
+    movImg.alt = mov_title;
     movImg.className = "movImgContainer";
     //console.log('movie path ='+ imgUrl + data.results[i].poster_path);
     document.getElementById("movies-container").appendChild(movImg);
     var movAnchr = document.createElement('a');
-    var mov_title = data.results[i].title;
+
     // if (document.querySelector(".movImgContainer")) {
     //   document.getElementById("form").reset();
     // }
@@ -37,7 +39,7 @@ function searchMovie(data) {
     event.preventDefault();
     });
     movAnchr.appendChild(movImg);
-    movAnchr.href = "http://example.com"; //link to eventListener here
+    //movAnchr.href = "http://example.com"; //link to eventListener here
     movAnchr.appendChild(movImg);
 
     document.getElementById('movies-container').appendChild(movAnchr);
@@ -51,8 +53,8 @@ function populateGiphy(data){
   giphyImg.src = data.data[0].images.downsized.url;
   console.log(data.data[0].images.downsized.url);
   giphyContainer.appendChild(giphyImg);
-  event.preventDefault(); 
- 
+  event.preventDefault();
+
 }
 
 
